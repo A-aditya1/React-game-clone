@@ -4,15 +4,17 @@ import "../Game.css";
 import Header from "./header";
 import Footer from "./footer";
 import { isWinner } from "../helper";
-
-const NO_CIRCLES = 16;
-const NO_PLAYER = 0;
-const PLAYER_1 = 1;
-const PLAYER_2 = 2;
+import { GAME_STATE_WIN, 
+    GAME_STATE_PLAYING, 
+    NO_PLAYER, 
+    PLAYER_1, 
+    NO_CIRCLES,
+    PLAYER_2 } from "../constants";
 
 const GameBoard = () => {
     const [gameBoard, setGameBoard] = useState(Array(16).fill(NO_PLAYER));
-    const [currentPlayer, setCurrentPlayer] = useState(1);
+    const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
+    const [gameState, setGameState] = useState(GAME_STATE_PLAYING);
 
     console.log(gameBoard);
 
@@ -20,20 +22,16 @@ const GameBoard = () => {
         const circles = [];
 
         for (let i = 0; i < NO_CIRCLES; i++) {
-            circles.push(renderCircle(i))
+            circles.push(renderCircle(i));
         }
         return circles;
     }
 
     const circleClicked = (id) => {
         console.log("Circle are slected:" + id);
-
-        // const board = [...gameBoard];
-        // board[id] = currentPlayer;
-
-
-        if (isWinner(gameBoard , id, currentPlayer)) {
-            console.log("winner");
+        if (isWinner(gameBoard, id, currentPlayer)) {
+            // console.log("winner");
+            setGameState(GAME_STATE_WIN);
         }
 
         setGameBoard(prev => {
@@ -54,7 +52,7 @@ const GameBoard = () => {
 
     return (
         <>
-            <Header player={currentPlayer} />
+            <Header gameState={gameState} player={currentPlayer} />
             <div className="gameBoard">
                 {initBoard()}
             </div>

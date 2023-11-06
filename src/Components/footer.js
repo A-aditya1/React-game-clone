@@ -1,11 +1,17 @@
 import React from 'react'
 
-const Footer=()=> {
-    return (
+const Footer = ({ onNewGameClick , onSuggestClick }) => {
+  return (
+    <>
+      <div className='container'>
         <div className="panel footer">
-   <button>New Game</button>
+          <button onClick={onNewGameClick}>New Game</button>
+          <button onClick={onSuggestClick}>Suggest</button>
         </div>
-      )
+      </div>
+    </>
+  )
+
 }
 
-export default Footer
+export default Footer;

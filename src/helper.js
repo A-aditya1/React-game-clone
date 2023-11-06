@@ -1,6 +1,6 @@
-export const isWinner = (gameBoard , currentMove, currentPlayer) => {
-  let board = [...gameBoard]
-board[currentMove]=currentPlayer;
+export const isWinner = (gameBoard, currentMove, currentPlayer) => {
+    let board = [...gameBoard]
+    board[currentMove] = currentPlayer;
 
 
     const winLines = [
@@ -20,10 +20,34 @@ board[currentMove]=currentPlayer;
         const [c1, c2, c3, c4] = winLines[i];
 
         if (board[c1] > 0 && board[c1] === board[c2] && board[c2] === board[c3] && board[c3] === board
-        [c4])
-        {
+        [c4]) {
             return true;
         }
     }
     return false;
+}
+
+
+/*{ let count = board.reduce((n , x) => n+ (x === 0),0);} // This logic for the Draw state Condition*/
+export const isDraw = (gameBoard, currentMove, currentPlayer) => {
+    let board = [...gameBoard]
+    board[currentMove] = currentPlayer;
+
+    let count = board.reduce((n , x) => n+ (x === 0),0);
+    console.log(`count ${count}`);
+    return count === 0;
+}
+
+
+/* Suggestion like logic and code {Like hint of the game }*/
+export const getComputerMove = (gameBoard) =>{
+let validMoves = [];
+for(let i=0; i < gameBoard.length;i++){
+    if (gameBoard[i] ===0){
+        validMoves.push(i);
+    }
+   
+}
+let rndMove = Math.floor(Math.random () * validMoves.length );
+return validMoves[rndMove];
 }

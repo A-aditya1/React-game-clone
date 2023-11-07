@@ -6,10 +6,7 @@
     --hover-background-color:rgb(105, 5, 135);
 }
 body {
-    /* background-color:var(--background-color); */
-    background-image: url("../public/images/himalayas-mountains-landscape-nature-wallpaper-preview.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color:var(--background-color);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -88,6 +85,7 @@ body {
     align-items: center;
     text-align: center;
     max-width: 55%;
+    border-radius: 7.5px;
 }
 
 .footer button {
@@ -95,6 +93,7 @@ body {
     margin-left: 9px;
     cursor: pointer;
     width: 134px;
+    border-radius:3.5px;
     height: 50px;
     background-color:var( --board-background-color);
     -webkit-box-shadow: 3px 5px 10px 2px rgba(0, 0, 0, 0.9);

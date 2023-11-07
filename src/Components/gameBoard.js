@@ -30,11 +30,12 @@ const GameBoard = () => {
         console.log("init game");
         setGameBoard(Array(16).fill(NO_PLAYER));
         setCurrentPlayer(PLAYER_1);
+        setGameState(GAME_STATE_PLAYING);
     }
+    
 /*  Suggestion move code and logic  */
     const suggestMove = () => {
         circleClicked(getComputerMove(gameBoard));
-
     };
 
     const initBoard = () => {

@@ -1,6 +1,18 @@
+:root{
+    --background-color:rgb(91, 4, 141);
+    --board-background-color:rgba(152, 224, 248, 0.798);
+    --panel-border-color:rgb(58, 3, 90);
+    --panel-background-color: rgba(22, 1, 39, 0.848);
+    --hover-background-color:rgb(105, 5, 135);
+}
 body {
-    background-color: cornflowerblue;
+    /* background-color:var(--background-color); */
+    background-image: url("../public/images/himalayas-mountains-landscape-nature-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .app-container {
@@ -14,10 +26,35 @@ body {
 
 .panel {
     position: absolute;
-    background-color: lightgoldenrodyellow;
-    border: 8px solid burlywood;
+    background-color: rgb(37, 1, 50) ;
+    border: 8px solidvar( --panel-border-color);
     box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
     z-index: 1;
+}
+@media screen and (max-width: 768px) {
+    .app-container {
+        width: 100%; /* Adjust width for smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+        position: relative; /* Change position to relative for mobile layout */
+        left: 0;
+        top: 0;
+        margin: 0; /* Remove margin */
+    }
+
+    .gameBoard {
+        width: 100%; /* Adjust width for smaller screens */
+        margin: 0; /* Remove margin */
+        grid-template-columns: repeat(2, 1fr); /* Example: Change grid layout for mobile */
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .footer {
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%; /* Adjust width for smaller screens */
+        max-width: 100%; /* Ensure content does not overflow */
+    }
 }
 
 .header {
@@ -59,14 +96,14 @@ body {
     cursor: pointer;
     width: 134px;
     height: 50px;
-    background-color: lightblue;
+    background-color:var( --board-background-color);
     -webkit-box-shadow: 3px 5px 10px 2px rgba(0, 0, 0, 0.9);
     box-shadow: 3px 5px 10px 2px rgba(0, 0, 0, 0.9);
-    border: 5px solid chocolate;
+    border: 5px solid var( --panel-border-color);
     font-weight: bold;
 }
 .footer button:hover{
-    background-color: rgb(77, 33, 2);
+    background-color: var(--hover-background-color);
     color: #fff;
 }
 .gameBoard {
@@ -79,8 +116,8 @@ body {
     left: 50%;
     margin-left: -250px;
     top: 20%;
-    background-color: rgba(227, 110, 31, 0.848);
-    border: 8px solid burlywood;
+    background-color:var( --panel-background-color);
+    border: 8px solid var( --panel-border-color);
     border-radius: 8%;
     -webkit-box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
     box-shadow: 7px 5px 15px 3px rgba(0, 0, 0, 0.9);
